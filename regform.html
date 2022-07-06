@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://localhost/testsite/regform.css">
+<script>
+	function changetext() {
+		var idp=document.getElementById("idp").value;
+	//	alert("selected value is " +idp);
+
+		if (idp ==="adh") {
+			document.getElementById("number").placeholder="Enter Aadhaar card number";
+            document.getElementById("name").placeholder="Name (as in Aadhaar Card)";
+			document.getElementById("num").innerHTML='<strong>Aadhaar Card</strong>';
+            document.getElementById("dob").placeholder="as in Aadhaar Card in YYYY format";
+		//	alert("selected value is " +idp);
+		}
+		else if (idp==="vid") {
+			document.getElementById("number").placeholder="Enter VoterID card number";
+            document.getElementById("name").placeholder="Name (as in Voter ID)";
+			document.getElementById("num").innerHTML='<strong>Voter ID</strong>';
+            document.getElementById("dob").placeholder="as in Voter ID Card in YYYY format";
+			//alert("selected value is " +idp);
+		}
+		else if (idp==="dlc") {
+			document.getElementById("number").placeholder="Enter Driving licence card number";
+            document.getElementById("name").placeholder="Name (as in Driving licence card)";
+            document.getElementById("dob").placeholder="as in Driving licence Card in YYYY format";
+			//document.getElementById("number").label="Drivers licence";
+		}
+		else if (idp==="pan") {
+			document.getElementById("number").placeholder="Enter pan card number";
+            document.getElementById("name").placeholder="Name (as in Pan card)";
+            document.getElementById("dob").placeholder="as in Pan card in YYYY format";
+		//	document.getElementById("number").label="PAN Card";
+		}
+	}
+</script>
+</head>
+<body>
+
+<h1 style="text-align:center ;font-family:georgia,garamond,serif;">Vaccine Registration </h1>
+	<p style="text-align: center">Your <strong>Photo ID</strong> will be verified at the time of your vaccination appointment. Please provide the details of the Photo Id you will carry for vaccination.
+</p>
+
+
+	<form action="regform.php" method="post" >
+  <div class="container">
+
+    <h3>Photo ID Proof</h3>
+		<select name="idp" id="idp" value="Choose photo ID proof" style="color:blue" onchange="changetext()">
+			<option value="adh">Aadhaar</option>
+			<option value="vid">Voter ID</option>
+			<option value="dlc">Driving licence</option>
+			<option value="pan">pan card</option>
+		</select>
+    <hr>
+
+
+    <label id="num" for="number"><b>Aadhaar Number</b></label>
+    <input type="number" placeholder="Enter Aadhaar Number" name="number" id="number" required>
+
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Name (as in Aadhaar Card)" name="name" id="name" required>
+
+	<h3>Gender</h3>
+	<input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label><br>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br>
+    <input type="radio" id="other" name="gender" value="other">
+    <label for="other">Other</label><br><br>
+
+    <label for="dob"><b>Year of Birth</b></label>
+    <input type="number" placeholder="as in Aadhaar Card in YYYY format" name="dob" id="dob" required>
+    <hr>
+
+    <button type="submit" class="registerbtn">Register</button>
+  </div>
+</form>
+
+
+</body>
+</html>
